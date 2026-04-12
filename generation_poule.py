@@ -4,7 +4,7 @@ def generation_poule(nbre_joueur,ordinateur=0):
      """creation d'une poule de 4 joueurs"""
      if nbre_joueur==4 and ordinateur==0:
         joueurs1={input("entrez le nom du joueur: "): n-n for n in range(1, nbre_joueur+1)}
-        print(joueurs1)  # {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}  
+        #print(joueurs1)   
      elif nbre_joueur==4 and ordinateur!=0:
          joueurs1={input("entrez le nom du joueur: "): n-n for n in range(1, nbre_joueur-ordinateur+1)}
          for i in range (1, ordinateur+1):
@@ -22,16 +22,16 @@ def generation_poule(nbre_joueur,ordinateur=0):
               joueurs1[f"machine1-{i}"]=0
            for i in range (1, 5):
               joueurs2={f"machine2-{n}": n-n for n in range(1, 5)}
-           print(joueurs1,joueurs2)  
+           #print(joueurs1,joueurs2)  
 
          elif 8>nbre_joueur-ordinateur>4 and nbre_joueur-ordinateur!=4:
             joueurs2={input("entrez le nom du joueur: "): n-n for n in range(1, nbre_joueur-ordinateur-4+1) if n<5}
             for i in range (1, ordinateur+1):
               joueurs2[f"machine2-{i}"]=0
-            print(joueurs1,joueurs2)
+            #print(joueurs1,joueurs2)
          elif nbre_joueur-ordinateur==4:
              joueurs2={f"machine2-{n}": n-n for n in range(1, 5)}
-             print(joueurs1,joueurs2)
+             #print(joueurs1,joueurs2)
 
      """creation des poules avec 16 joueurs    """     
 
@@ -78,14 +78,77 @@ def generation_poule(nbre_joueur,ordinateur=0):
               joueurs3[f"machine3-{i}"]=0
           for i in range (1, 4-len(joueurs4)+1):  
               joueurs4[f"machine4-{i}"]=0  
-     print(joueurs1,joueurs2,joueurs3,joueurs4, end=" ")
+     #print(joueurs1,joueurs2,joueurs3,joueurs4, end=" ")
     
 
 
 
+     
+     tous_joueurs=[]
+     if nbre_joueur==4:
+            
+            for parametre1, parametre2 in joueurs1.items():
+                 joueurx={}
+                 joueurx["nom"]=parametre1
+                 joueurx["points_recu"]=parametre2
+                 joueurx["classement"]=0
+                 joueurx["poule_joueur"]="poule 1"
+                 tous_joueurs.append(joueurx)
+    
+     elif nbre_joueur==8:
+            for parametre1, parametre2 in joueurs1.items():
+                 joueurx={}
+                 joueurx["nom"]=parametre1
+                 joueurx["points_recu"]=parametre2
+                 joueurx["classement"]=0
+                 joueurx["poule_joueur"]="poule 1"
+                 tous_joueurs.append(joueurx)
+
+            for parametre1, parametre2 in joueurs2.items():
+                 joueurx={}
+                 joueurx["nom"]=parametre1
+                 joueurx["points_recu"]=parametre2
+                 joueurx["classement"]=0
+                 joueurx["poule_joueur"]="poule 2"
+                 tous_joueurs.append(joueurx)
+     elif nbre_joueur==16:
+           for parametre1, parametre2 in joueurs1.items():
+                 joueurx={}
+                 joueurx["nom"]=parametre1
+                 joueurx["points_recu"]=parametre2
+                 joueurx["classement"]=0
+                 joueurx["poule_joueur"]="poule 1"
+                 tous_joueurs.append(joueurx)
+           for parametre1, parametre2 in joueurs2.items():
+                 joueurx={}
+                 joueurx["nom"]=parametre1
+                 joueurx["points_recu"]=parametre2
+                 joueurx["classement"]=0
+                 joueurx["poule_joueur"]="poule 2"
+                 tous_joueurs.append(joueurx)
+           for parametre1, parametre2 in joueurs3.items():
+                 joueurx={}
+                 joueurx["nom"]=parametre1
+                 joueurx["points_recu"]=parametre2
+                 joueurx["classement"]=0
+                 joueurx["poule_joueur"]="poule 3"
+                 tous_joueurs.append(joueurx)
+           for parametre1, parametre2 in joueurs4.items():
+                 joueurx={}
+                 joueurx["nom"]=parametre1
+                 joueurx["points_recu"]=parametre2
+                 joueurx["classement"]=0
+                 joueurx["poule_joueur"]="poule 4"
+                 tous_joueurs.append(joueurx) 
+     print(tous_joueurs)     
+     import csv
+     with open("phase_poule.csv","w", newline="", encoding="utf-8") as fichier:
+          colonnes=["nom","points_recu","classement","poule_joueur"]
+          joueur_entres=csv.DictWriter(fichier,fieldnames=colonnes)
+          joueur_entres.writeheader()
+          joueur_entres.writerows(tous_joueurs)
 
 
 
 
 
-   
