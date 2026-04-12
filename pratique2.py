@@ -1,31 +1,25 @@
-MAX_ESSAIS = 3
-FICHIER_POINTS = "point.txt"
-
-def calcul_point(nombre_essais, niveau_jeux):
-  """ 
-   calcul des points phases de poules
-  Arg:
-       nombre_essais (int) : nombre de tentatives
-       niveau_jeux (str): "etape1", "etape2" ou "etape3"
-  return:
-       int: point calculé (0-50)
-  """
-  score_base = 0
-  penalite = nombre_essais * 10
-  if niveau_jeux == "etape3" :
-    score_base = 9
-  elif niveau_jeux == "etape2" :
-    score_base = 6
-  else:
-    score_base = 3
-
-  score_final = max(0, penalite - score_base)
-  return score_final 
+def calcul_point(matches, joueur) :
+    point = {j: 0 for j in joueur}
+    for match in matches :
+        if len(match) != 3 :
+            print("match invalide ignoré : " , match)
+            continue
+        j1, j2, resultat = match
+        if resultat == "p1" :
+            point[j1] += 3
+        elif resultat == "p2" :
+            point[j2] += 3
+        elif resultat == "nulle" :
+            point[j1] += 1
+            point[j2] += 1
+    return point
 #test
-essais = 2
-score = calcul_point(essais,"etape3" )
-
-print(f"Point final : {score} point")
-
-
-   
+joueur =["a", "b", "c","d"] 
+match = [
+    ("a", "b", "p1"),
+    ("c", "d", "nulle"),
+    ("a", "c", "p2"),
+    ("b", "d", "p2")
+]        
+print(calcul_point(match, joueur))
+         
