@@ -1,19 +1,11 @@
-def nbre_participants(x):
+def nbre_participants(parametre_part):
    """vérifier si le nbre de participants correspond à celui autorisée"""
+   if parametre_part<=4:
+      gh
 
-def joueur_match(y):
-   """verifie si le nbre de personne correspond et complète si insufissant"""
-   return nbre_joueurs
 
-def joueur_machine():
-   pass
 
-def generation_poule(nbre_joueurs):
-   """creation de phase de poule"""
-   return poule
 
-def creer_tournoi():
-   pass
 
 def jeux(a,b,p):
    """s'occupe des affrontements entre joueurs"""
