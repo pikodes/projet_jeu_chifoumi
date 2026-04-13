@@ -8,7 +8,7 @@ def generation_poule(nbre_joueur,ordinateur=0):
      elif nbre_joueur==4 and ordinateur!=0:
          joueurs1={input("entrez le nom du joueur: "): n-n for n in range(1, nbre_joueur-ordinateur+1)}
          for i in range (1, ordinateur+1):
-              joueurs1[f"machine1-{i}"]=0
+              joueurs1[f"machine"]=0
          
      """creation des poules avec 8 joueurs"""
      if nbre_joueur==8 and ordinateur==0:
@@ -19,18 +19,18 @@ def generation_poule(nbre_joueur,ordinateur=0):
          joueurs1={input("entrez le nom du joueur: "): n-n for n in range(1, nbre_joueur-ordinateur+1 ) if n<5 }
          if nbre_joueur-ordinateur<4 and nbre_joueur-ordinateur!=4:
            for i in range (1, (4-(nbre_joueur-ordinateur))+1):
-              joueurs1[f"machine1-{i}"]=0
+              joueurs1[f"machine"]=0
            for i in range (1, 5):
-              joueurs2={f"machine2-{n}": n-n for n in range(1, 5)}
+              joueurs2={f"machine": n-n for n in range(1, 5)}
            #print(joueurs1,joueurs2)  
 
          elif 8>nbre_joueur-ordinateur>4 and nbre_joueur-ordinateur!=4:
             joueurs2={input("entrez le nom du joueur: "): n-n for n in range(1, nbre_joueur-ordinateur-4+1) if n<5}
             for i in range (1, ordinateur+1):
-              joueurs2[f"machine2-{i}"]=0
+              joueurs2[f"machine"]=0
             #print(joueurs1,joueurs2)
          elif nbre_joueur-ordinateur==4:
-             joueurs2={f"machine2-{n}": n-n for n in range(1, 5)}
+             joueurs2={f"machine": n-n for n in range(1, 5)}
              #print(joueurs1,joueurs2)
 
      """creation des poules avec 16 joueurs    """     
@@ -71,13 +71,13 @@ def generation_poule(nbre_joueur,ordinateur=0):
                  continue
                compteur+=1
           for i in range (1, 4-len(joueurs1)+1):
-              joueurs1[f"machine1-{i}"]=0  
+              joueurs1[f"machine"]=0  
           for i in range (1, 4-len(joueurs2)+1):
-              joueurs2[f"machine2-{i}"]=0
+              joueurs2[f"machine"]=0
           for i in range (1, 4-len(joueurs3)+1):
-              joueurs3[f"machine3-{i}"]=0
+              joueurs3[f"machine"]=0
           for i in range (1, 4-len(joueurs4)+1):  
-              joueurs4[f"machine4-{i}"]=0  
+              joueurs4[f"machine"]=0  
      #print(joueurs1,joueurs2,joueurs3,joueurs4, end=" ")
     
 
