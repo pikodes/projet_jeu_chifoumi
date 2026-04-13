@@ -1,48 +1,29 @@
-def nbre_participants(parametre_part):
-   """vérifier si le nbre de participants correspond à celui autorisée"""
-   if parametre_part<=4:
-      gh
-
-
-
-
-
-def jeux(a,b,p):
-   """s'occupe des affrontements entre joueurs"""
-
-def calcul_point(x,y,z):
-   """"calcul des points phases de poules""" 
-   return score_joueur
-
-def classement_joueur():
-   """charger du ranking des participants tout au long du parcours"""
-   return vainqueur, perdant
-
-def poduim(m,n,p):
-   """"charger du classement des joueurs"""
-   return 
-
-def affichage():
-   pass
-
-def saisie(x, y): 
-       """saisie nombre de participant et personne dans le jeu avec gestion d'erreur """
-       try:    
-           x = int(input("entrez nombre de participant"))
-           y = int(input("entrez nombre de joueur"))
-       except ValueError:
-          print('entrez nombre valide')
-       except TabError:
-          print('')
-       
- 
+from saisie_entree import get_tournament_config
+from creer_tournoi import initialize_players, display_bracket, run_tournament, display_podium
 
 def main():
-   pass
+    """
+    Fonction principale qui orchestre le tournoi.
+    Suit les 5 étapes du cycle de vie de l'application.
+    """
+    print("=== Bienvenue dans le Tournoi Chifoumi Pro ===")
+    print("Règles : Matches en 3 manches gagnantes (Best of 3).")
+    
+    # ÉTAPE 1 : Configuration (Nombre de joueurs total et humains)
+    total_participants, human_participants = get_tournament_config()
+    
+    # ÉTAPE 2 : Initialisation (Création et mélange des joueurs)
+    players = initialize_players(total_participants, human_participants)
+    
+    # ÉTAPE 3 : Affichage du Bracket (Tableau initial)
+    display_bracket(players)
+    
+    # ÉTAPE 4 : Déroulement (Lancement des matches jusqu'à la finale)
+    winner, runner_up, third_place = run_tournament(players)
+    
+    # ÉTAPE 5 : Résultats (Affichage du podium final)
+    display_podium(winner, runner_up, third_place)
 
-
-
-
-
-
-
+if __name__ == "__main__":
+    # Point d'entrée standard Python pour exécuter le script
+    main()
