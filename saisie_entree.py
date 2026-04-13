@@ -50,3 +50,43 @@ def saisie():
                   print("Erreur : tu dois entrer un nombre entier")
 
 
+
+def saisie_jeu_poule():
+       
+        while True:
+          try:
+            jeu1 = int(input("que vas tu jouer:entre juste le chiffre affecter à ton jeu [pierre=1, papier=2, ciseau=3]"))
+            jeu2 = int(input("que vas tu jouer:entre juste le chiffre affecter à ton jeu [pierre=1, papier=2, ciseau=3]"))
+
+            if jeu1!=[1,2,3] or jeu2!=[1,2,3]:
+                    print("Erreur : jeux non pris en charge bien lire les consignes")
+                    jeu1 = int(input("que vas tu jouer:entre juste le chiffre affecter à ton jeu [pierre=1, papier=2, ciseau=3]"))
+                    jeu2 = int(input("que vas tu jouer:entre juste le chiffre affecter à ton jeu [pierre=1, papier=2, ciseau=3]"))
+
+                    return jeu1,jeu2 
+
+          except ValueError:
+                  print("Erreur : tu dois entrer un nombre entier")
+
+def saisie_jeu_elim():
+         
+         while True:
+          try:
+            jeu1 = int(input("que vas tu jouer:entre juste le chiffre affecter à ton jeu [pierre=1, papier=2, ciseau=3]"))
+            jeu2 = int(input("que vas tu jouer:entre juste le chiffre affecter à ton jeu [pierre=1, papier=2, ciseau=3]"))
+
+            while jeu1!=[1,2,3] or jeu2!=[1,2,3]:
+                    print("Erreur : jeux non pris en charge bien lire les consignes")
+                    jeu1 = int(input("que vas tu jouer:entre juste le chiffre affecter à ton jeu [pierre=1, papier=2, ciseau=3]"))
+                    jeu2 = int(input("que vas tu jouer:entre juste le chiffre affecter à ton jeu [pierre=1, papier=2, ciseau=3]"))
+    
+            while jeu1==jeu2:
+                    print("Erreur : jeux equivalent modifier")
+                    jeu1 = int(input("que vas tu jouer:entre juste le chiffre affecter à ton jeu [pierre=1, papier=2, ciseau=3]"))
+                    jeu2 = int(input("que vas tu jouer:entre juste le chiffre affecter à ton jeu [pierre=1, papier=2, ciseau=3]"))
+            return jeu1,jeu2 
+
+          except ValueError:
+                  print("Erreur : tu dois entrer un nombre entier")
+
+

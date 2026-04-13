@@ -84,70 +84,126 @@ def generation_poule(nbre_joueur,ordinateur=0):
 
 
      
-     tous_joueurs=[]
+     
      if nbre_joueur==4:
-            
+            tous_joueurs4=[]
             for parametre1, parametre2 in joueurs1.items():
                  joueurx={}
                  joueurx["nom"]=parametre1
                  joueurx["points_recu"]=parametre2
                  joueurx["classement"]=0
                  joueurx["poule_joueur"]="poule 1"
-                 tous_joueurs.append(joueurx)
+                 tous_joueurs4.append(joueurx)
+                  
+            import csv
+            with open("phase_poule.csv","w", newline="", encoding="utf-8") as fichier:
+                colonnes=["nom","points_recu","classement","poule_joueur"]
+                joueur_entres=csv.DictWriter(fichier,fieldnames=colonnes)
+                joueur_entres.writeheader()
+                joueur_entres.writerows(tous_joueurs4)
+            return "phase_poule.csv"                
     
      elif nbre_joueur==8:
+            tous_joueurs18=[] 
             for parametre1, parametre2 in joueurs1.items():
                  joueurx={}
                  joueurx["nom"]=parametre1
                  joueurx["points_recu"]=parametre2
                  joueurx["classement"]=0
                  joueurx["poule_joueur"]="poule 1"
-                 tous_joueurs.append(joueurx)
+                 tous_joueurs18.append(joueurx)
 
+            import csv
+            with open("phase_poule1.csv","w", newline="", encoding="utf-8") as fichier:
+                colonnes=["nom","points_recu","classement","poule_joueur"]
+                joueur_entres=csv.DictWriter(fichier,fieldnames=colonnes)
+                joueur_entres.writeheader()
+                joueur_entres.writerows(tous_joueurs18)                   
+                
+            tous_joueurs28=[]
             for parametre1, parametre2 in joueurs2.items():
                  joueurx={}
                  joueurx["nom"]=parametre1
                  joueurx["points_recu"]=parametre2
                  joueurx["classement"]=0
                  joueurx["poule_joueur"]="poule 2"
-                 tous_joueurs.append(joueurx)
+                 tous_joueurs28.append(joueurx)
+
+            import csv
+            with open("phase_poule2.csv","w", newline="", encoding="utf-8") as fichier:
+                colonnes=["nom","points_recu","classement","poule_joueur"]
+                joueur_entres=csv.DictWriter(fichier,fieldnames=colonnes)
+                joueur_entres.writeheader()
+                joueur_entres.writerows(tous_joueurs28)   
+
+            return "phase_poule1.csv","phase_poule2.csv"                    
+
      elif nbre_joueur==16:
+           tous_joueurs116=[]
            for parametre1, parametre2 in joueurs1.items():
                  joueurx={}
                  joueurx["nom"]=parametre1
                  joueurx["points_recu"]=parametre2
                  joueurx["classement"]=0
                  joueurx["poule_joueur"]="poule 1"
-                 tous_joueurs.append(joueurx)
+                 tous_joueurs116.append(joueurx)
+
+           import csv
+           with open("phase_poule1.csv","w", newline="", encoding="utf-8") as fichier:
+                colonnes=["nom","points_recu","classement","poule_joueur"]
+                joueur_entres=csv.DictWriter(fichier,fieldnames=colonnes)
+                joueur_entres.writeheader()
+                joueur_entres.writerows(tous_joueurs116)                   
+
+           tous_joueurs216=[]
            for parametre1, parametre2 in joueurs2.items():
                  joueurx={}
                  joueurx["nom"]=parametre1
                  joueurx["points_recu"]=parametre2
                  joueurx["classement"]=0
                  joueurx["poule_joueur"]="poule 2"
-                 tous_joueurs.append(joueurx)
+                 tous_joueurs216.append(joueurx)
+
+           import csv
+           with open("phase_poule2.csv","w", newline="", encoding="utf-8") as fichier:
+                colonnes=["nom","points_recu","classement","poule_joueur"]
+                joueur_entres=csv.DictWriter(fichier,fieldnames=colonnes)
+                joueur_entres.writeheader()
+                joueur_entres.writerows(tous_joueurs216)                   
+
+           tous_joueurs316=[]      
            for parametre1, parametre2 in joueurs3.items():
                  joueurx={}
                  joueurx["nom"]=parametre1
                  joueurx["points_recu"]=parametre2
                  joueurx["classement"]=0
                  joueurx["poule_joueur"]="poule 3"
-                 tous_joueurs.append(joueurx)
+                 tous_joueurs316.append(joueurx)
+
+           import csv
+           with open("phase_poule3.csv","w", newline="", encoding="utf-8") as fichier:
+                colonnes=["nom","points_recu","classement","poule_joueur"]
+                joueur_entres=csv.DictWriter(fichier,fieldnames=colonnes)
+                joueur_entres.writeheader()
+                joueur_entres.writerows(tous_joueurs316)                   
+
+           tous_joueurs416=[]      
            for parametre1, parametre2 in joueurs4.items():
                  joueurx={}
                  joueurx["nom"]=parametre1
                  joueurx["points_recu"]=parametre2
                  joueurx["classement"]=0
                  joueurx["poule_joueur"]="poule 4"
-                 tous_joueurs.append(joueurx) 
-     print(tous_joueurs)     
-     import csv
-     with open("phase_poule.csv","w", newline="", encoding="utf-8") as fichier:
-          colonnes=["nom","points_recu","classement","poule_joueur"]
-          joueur_entres=csv.DictWriter(fichier,fieldnames=colonnes)
-          joueur_entres.writeheader()
-          joueur_entres.writerows(tous_joueurs)
+                 tous_joueurs416.append(joueurx) 
 
+           import csv
+           with open("phase_poule4.csv","w", newline="", encoding="utf-8") as fichier:
+                colonnes=["nom","points_recu","classement","poule_joueur"]
+                joueur_entres=csv.DictWriter(fichier,fieldnames=colonnes)
+                joueur_entres.writeheader()
+                joueur_entres.writerows(tous_joueurs416)  
+
+           return "phase_poule1.csv","phase_poule2.csv","phase_poule3.csv","phase_poule4.csv" 
 
 
 
